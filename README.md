@@ -24,6 +24,6 @@ As a user I want to
 <li>MongoDB</li>
 </ul>
 
-</h2>Icebox:</h2>
+<h2>Icebox:</h2>
 
 <h2>Wireframes:</h2>
