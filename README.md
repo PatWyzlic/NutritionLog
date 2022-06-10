@@ -28,3 +28,6 @@
 
 <h2>Wireframes:</h2>
 <img src="https://user-images.githubusercontent.com/96600690/173129046-c95392dd-0490-4d96-8a86-96e361ed0332.png"/>
+
+<h2>ERD Diagram</h2>
+https://drive.google.com/file/d/1FTH0tu1psaY7dnH4FJo3i4DcPwdndmVu/view?usp=sharing
