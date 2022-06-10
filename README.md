@@ -1,19 +1,34 @@
 # NutritionLog
 
-Premise:
+<h1>Premise:</h1>
 User Story
 As a user I want to
-.Have my own login page 
-.Input my food item
-.Receive the amount of calories,
-and different nutritional info about it. 
+<ul>
+  <li>Have my own login page </li>
+  <li>Input my food item </li>
+  <li>Input amount of calories </li>
+  <li>Be able to see different nutritional information </li>
+  <li>Create food items </li>
+  <li>Delete food items </li>
+</ul>
 
-Technologies Used
-HTML
-CSS
-JavaScript
-Express
-Liquid
-Mongoose
-MongoDB
-
+<h1>Technologies Used</h2>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Express</li>
+<li>Liquid</li>
+<li>Mongoose</li>
+<li>MongoDB</li>
+</ul>
+  
+Icebox:
+<ul>
+  <li>Have my own login page </li>
+  <li>Input my food item </li>
+  <li>Input amount of calories </li>
+  <li>Be able to see different nutritional information </li>
+  <li>Create food items </li>
+  <li>Delete food items </li>
+</ul>
