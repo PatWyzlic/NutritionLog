@@ -1,6 +1,7 @@
 //Import dependencies
 require('dotenv').config()
 const express = require('express')
+const FoodRouter = require('./controllers/food')
 
 //Include required routes 
 const middleware = require('./utils/middleware')
@@ -10,6 +11,9 @@ const app = require('liquid-express-views')(express())
 
 //Include middleware
 middleware(app)
+
+//Routes
+app.use('/foods', FoodRouter)
 
 //Listen to the server
 const PORT = process.env.PORT
