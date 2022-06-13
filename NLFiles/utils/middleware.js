@@ -5,6 +5,8 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const FoodRouter = require('../controllers/food')
+const UserRouter = require('../controllers/user')
 
 //Create a function for the middleware to run
 const middleware = (app) => {

@@ -1,0 +1,37 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div class="container-sm">
+        <form action="/foods" method="POST">
+            <fieldset>
+                <legend>Create New Food</legend>
+                <label class="form-label">Name: </label>
+                    <input 
+                        type="text" 
+                        name="name"
+                        placeholder="enter food name"
+                        class="form-control"
+                        required
+                    >
+                <label class="form-label">Calories: </label>
+                    <input 
+                        type="number" 
+                        name="calories"
+                        placeholder="enter calories"
+                        class="form-control"
+                    >
+                <label class="form-label">Username: </label>
+                    <input readonly
+                        type="text" 
+                        name="username"
+                        class="form-control"
+                        value="{{ username }}"
+                    >
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Create New Food"
+                class="btn btn-success"
+            >
+        </form>
+    </div>
+{% endblock %}

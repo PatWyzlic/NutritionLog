@@ -4,17 +4,50 @@
 <!-- here we start our block content -->
 {% block content %}
     <div >
-        <h2 class="display-6">All Foods</h2>
+        <h1> My Nutrition Log </h1>
+        Date: {{ "now" | date: "%Y-%m-%d" }} </br>
+        Time: {{ "now" | date: "%H:%M" }}
+        {% if user.username == food.username %}
+        <table>
         <div class="row">
+            <tr>
+                <td>
+                    <h4>Food</h4>
+                </td>
+                <td>
+                    <h4>Calories</h4>
+                </td>
+                <td>
+                    <h4>Nutrition</h4>
+                </td>
+            </tr>
             {% for food in foods %}
-                <div class="card" style="width: 18rem;">
-                    <h5 class="card-header">{{food.name}}</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                        </h5>
-                    </div>
+                <tr><div class="card" style="width: 100%;">
+                    <td>
+                        <h5 class="card-header">{{food.name}}</h5>
+                    </td>
+                    <td>
+                        <h5>{{ food.calories }}</h5>
+                    </td>
+                    <td>    
+                    <a href="/foods/{{ food.id }}"  class="btn btn-info">
+                            View {{ food.name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/foods/{{ food.id }}/edit" class="btn btn-primary">Edit</a>
+                    </td>
+                    <td><form action="/foods/{{ food._id }}?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                    </td>
+                    
                 </div>
+                </tr>
             {% endfor %}
         </div>
+        </table>
+        <a href="/foods/new" class="btn btn-primary">New Food</a>
+        {% endif %}
     </div>
 {% endblock %}

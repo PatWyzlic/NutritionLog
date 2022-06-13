@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.1",
@@ -13,7 +14,8 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "seed": "node models/seed.js"
   },
   "name": "nlfiles",
   "version": "1.0.0",

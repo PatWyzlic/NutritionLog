@@ -1,0 +1,27 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-sm">
+    <form action="/foods/{{ food.id }}?_method=PUT" method="POST">
+        <fieldset>
+            <legend>Edit New Food</legend>
+            <label class="form-label">Name:</label>
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="enter food name"
+                class="form-control"
+                value="{{ food.name }}"
+            >
+            <label class="form-label">Calories:</label>
+            <input 
+                type="text" 
+                name="calories" 
+                placeholder="enter calorie amount"
+                class="form-control"
+                value="{{ food.calories }}"
+            > 
+        </fieldset>
+        <input type="submit" class="btn btn-success" value="Edit {{ food.name }}">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+
+    <div class="container-sm">
+        <form action="/user/signup" method="POST">
+            <fieldset>
+                <legend>New User</legend>
+                    <label class="form-label">Username: </label>
+                    <input type="text" name="username" placeholder="username" class="form-control" required>
+                <label class="form-label">Password</label>
+                    <input type="password" name="password" placeholder="enter password" class="form-control" required>
+                <label class="form-label">Weight</label>
+                    <input type="number" name="weight" placeholder="enter weight(Optional)" class="form-control">
+                <label class="form-label">Calorie Goal</label>
+                    <input type="number" name="calorieGoal" placeholder="enter calorie goal(Optional)" class="form-control">
+            </fieldset>
+            <input type="submit" value="Create Account" class="btn btn-success">
+        </form>
+    </div>
+{% endblock %}
