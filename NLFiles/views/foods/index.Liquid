@@ -2,11 +2,13 @@
 <!-- so we need to inform all our blocks(files) -->
 {% layout 'layout.liquid'%}
 <!-- here we start our block content -->
+
+<!-- Page when user logs in -->
 {% block content %}
     <div >
         <h1> My Nutrition Log </h1>
         Date: {{ "now" | date: "%Y-%m-%d" }} </br>
-        Time: {{ "now" | date: "%H:%M" }}
+        {{ username.weight }}
         {% if user.username == food.username %}
         <table>
         <div class="row">

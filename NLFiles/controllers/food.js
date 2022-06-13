@@ -63,13 +63,6 @@ router.get('/new', (req, res) => {
 	res.render('foods/new', { username, loggedIn })
 })
 
-// new route -> GET route that renders our page with the weight page
-router.get('/goals', (req, res) => {
-	const username = req.session.username
-	const loggedIn = req.session.loggedIn
-	res.render('user/goals', { username, loggedIn })
-})
-
 // create -> POST route that calls the db and makes a new document
 router.post('/', (req, res) => {
 	req.body.username = req.session.username

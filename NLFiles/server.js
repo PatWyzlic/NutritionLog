@@ -9,6 +9,7 @@ const app = require('liquid-express-views')(express())
 //Require routers
 const FoodRouter = require('./controllers/food')
 const UserRouter = require('./controllers/user')
+const GoalRouter = require('./controllers/goal')
 const HomeRouter = require('./controllers/home')
 const middleware = require('./utils/middleware')
 
@@ -16,6 +17,7 @@ const middleware = require('./utils/middleware')
 middleware(app)
 
 //Routes
+app.use('/goals', GoalRouter)
 app.use('/foods', FoodRouter)
 app.use('/user', UserRouter)
 app.use('/', HomeRouter)

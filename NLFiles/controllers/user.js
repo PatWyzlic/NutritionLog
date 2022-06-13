@@ -81,11 +81,6 @@ router.post('/login', async (req, res) => {
         })
 })
 
-router.get('/user/goals', (req, res) => {
-	const username = req.session.username
-	const loggedIn = req.session.loggedIn
-	res.render('goals/goals', { username, loggedIn })
-})
 
 // logout route -> destroy the session
 router.get('/logout', (req, res) => {
