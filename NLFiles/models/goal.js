@@ -6,7 +6,7 @@ const { Schema, model } = mongoose
 
 // make our foods schema
 const goalSchema = new Schema({
-    weight: { type: String },
+    weight: { type: Number },
     calorie_goal: { type: Number},
 }, { timestamps: true })
 

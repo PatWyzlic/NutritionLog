@@ -76,6 +76,22 @@ router.get('/:id/edit', (req, res) => {
 		})
 })
 
+// update route -> sends a put request to our database
+router.put('/:id', (req, res) => {
+	// get the id
+	const goalId = req.params.id
+	Goal.findByIdAndUpdate(foodId, req.body, { new: true })
+		// if successful -> redirect to the food page
+		.then((food) => {
+			console.log('the updated food', food)
+
+			res.redirect(`/foods/${food.id}`)
+		})
+		// if an error, display that
+		.catch((error) => res.json(error))
+})
+
+
 
 // Export the Router
 module.exports = router

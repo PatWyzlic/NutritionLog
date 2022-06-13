@@ -3,14 +3,14 @@
     <div class="container-md">
         <article>
             <h1> Goals page </h1>
-            {{ goal.weight }}
-            <a href="/goals/{{ goal.weight }}/edit" class="btn btn-primary">Edit</a>
-            <form action="/foods" method="POST">
+            {{ Goal.weight }}
+            <a href="/goals/{{ goal._id }}/edit" class="btn btn-primary">Edit</a>
+            <form action="/goals" method="POST">
                 <fieldset>
                     <legend>Add Weight</legend>
-                    <label class="form-label">Name: </label>
+                    <label class="form-label">Weight: </label>
                         <input 
-                            type="text" 
+                            type="number" 
                             name="name"
                             placeholder="enter weight"
                             class="form-control"
