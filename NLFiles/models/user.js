@@ -15,14 +15,6 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    },
-    weight: {
-        type: Number,
-        required: false
-    },
-    calorieGoal: {
-        type: Number,
-        required: false
     }
 })
 

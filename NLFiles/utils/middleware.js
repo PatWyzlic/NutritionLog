@@ -7,6 +7,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const FoodRouter = require('../controllers/food')
 const UserRouter = require('../controllers/user')
+const GoalRouter = require('../controllers/goal')
 
 //Create a function for the middleware to run
 const middleware = (app) => {

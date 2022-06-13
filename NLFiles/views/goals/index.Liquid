@@ -1,0 +1,35 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div class="container-md">
+        <article>
+            <h1> Goals page </h1>
+            {{ goal.weight }}
+            <a href="/goals/{{ goal.weight }}/edit" class="btn btn-primary">Edit</a>
+            <form action="/foods" method="POST">
+                <fieldset>
+                    <legend>Add Weight</legend>
+                    <label class="form-label">Name: </label>
+                        <input 
+                            type="text" 
+                            name="name"
+                            placeholder="enter weight"
+                            class="form-control"
+                            value="{{ goal.weight }}"
+                            required
+                        >
+                    <label class="form-label">Add calorie goal: </label>
+                        <input 
+                            type="number" 
+                            name="calorie_goal"
+                            placeholder="enter calories"
+                            class="form-control"
+                        >
+                </fieldset>
+                <input 
+                    type="submit" 
+                    value="Create New Goal"
+                    class="btn btn-success"
+                >
+            </form>
+    </div>
+{% endblock %}

@@ -20,14 +20,15 @@ router.use((req, res, next) => {
 
 // Routes
 // index ALL foods route
-router.get('/goals', (req, res) => {
+router.get('/', (req, res) => {
 	// find the foods
-	Food.find({})
+	Goal.find({})
 		// then render a template AFTER they're found
-		.then((foods) => {
+		.then((goals) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.render('foods/goals', { Goal, username, loggedIn })
+			// console.log(foods)
+			res.render('goals/index', { goals, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -35,3 +36,46 @@ router.get('/goals', (req, res) => {
 			res.json({ error })
 		})
 })
+
+// index that shows only the user's foods
+router.get('/goals', (req, res) => {
+	// find the foods
+	Goal.find({ username: req.session.username })
+		// then render a template AFTER they're found
+		.then((goals) => {
+			// console.log(foods)
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+
+			res.render('goals/index', { goals, username, loggedIn })
+		})
+		// show an error if there is one
+		.catch((error) => {
+			console.log(error)
+			res.json({ error })
+		})
+})
+
+// edit route -> GET that takes us to the edit form view
+router.get('/:id/edit', (req, res) => {
+	// we need to get the id
+	const weightId = req.params.id
+	// find the food
+	Weight.findById(weightId)
+		// -->render if there is a food
+		.then((goals) => {
+			console.log('edit goals', goals)
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+			res.render('goals/edit', { goals, username, loggedIn })
+		})
+		// -->error if no food
+		.catch((err) => {
+			console.log(err)
+			res.json(err)
+		})
+})
+
+
+// Export the Router
+module.exports = router
