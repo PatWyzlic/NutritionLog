@@ -1,0 +1,20 @@
+<!-- we're serving block content in layout.liquid -->
+<!-- so we need to inform all our blocks(files) -->
+{% layout 'layout.liquid'%}
+<!-- here we start our block content -->
+{% block content %}
+    <div >
+        <h2 class="display-6">All Foods</h2>
+        <div class="row">
+            {% for food in foods %}
+                <div class="card" style="width: 18rem;">
+                    <h5 class="card-header">{{food.name}}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
