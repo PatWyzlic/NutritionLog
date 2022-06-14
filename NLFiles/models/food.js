@@ -9,7 +9,7 @@ const foodSchema = new Schema({
         name: String,
         username: String,
         "items": [
-          {
+        {
             "sugar_g": Number,
             "fiber_g": Number,
             "serving_size_g": Number,
@@ -22,7 +22,7 @@ const foodSchema = new Schema({
             "cholesterol_mg": Number,
             "protein_g": Number,
             "carbohydrates_total_g": Number
-          },
+        },
         ]
     }, { timestamps: true })
 

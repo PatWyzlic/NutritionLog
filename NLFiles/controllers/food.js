@@ -70,19 +70,18 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
 	req.body.username = req.session.username
     let query = req.body.query
-    const getData = {
-        method: 'GET',
-        url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
-        headers: { 'X-Api-Key': 'YOUR_API_KEY'},
-        contentType: 'application/json',
-        success: function(result){
-            fetch(result)
-            .then((apiResponse) => {
-            console.log('Food item: ', query)
-        })
+    let headersList = {
+        "X-API-KEY": "1RT14o/KGYDrVlJRZFVwDg==3XTvEdFI8JODs5hr"
         }
-    }
-    console.log(getData);
+    fetch(`https://api.calorieninjas.com/v1/nutrition?query=${query}`, { 
+        method: "GET",
+        headers: headersList
+    }).then(function(response) {
+        return response.json();
+        Food.create(req.body)
+    }).then(function(data) {
+        console.log(data);
+    })
 })
 
 // edit route -> GET that takes us to the edit form view

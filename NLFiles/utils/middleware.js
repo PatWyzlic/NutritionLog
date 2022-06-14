@@ -4,7 +4,7 @@ const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 const session = require('express-session')
-const MongoStore = require('connect-mongo')
+const MongoConnect = require('connect-mongo')
 const FoodRouter = require('../controllers/food')
 const UserRouter = require('../controllers/user')
 const GoalRouter = require('../controllers/goal')
@@ -18,7 +18,7 @@ const middleware = (app) => {
     app.use(
 			session({
 				secret: process.env.SECRET,
-				store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),
+				store: MongoConnect.create({ mongoUrl: process.env.DATABASE_URL }),
 				saveUninitialized: true,
 				resave: false,
 			})
