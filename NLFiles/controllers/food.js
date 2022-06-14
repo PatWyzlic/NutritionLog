@@ -2,6 +2,7 @@
 const express = require('express')
 const Food = require('../models/food')
 const YOUR_API_KEY = process.env.API_KEY
+const fetch = require("node-fetch")
 
 // Create router
 const router = express.Router()
@@ -68,15 +69,20 @@ router.get('/new', (req, res) => {
 // create -> POST route that calls the db and makes a new document
 router.post('/', (req, res) => {
 	req.body.username = req.session.username
-	Food.create(req.body)
-		.then((food) => {
-			console.log('this was returned from create', food)
-			res.redirect('/foods')
-		})
-		.catch((err) => {
-			console.log(err)
-			res.json({ err })
-		})
+    let query = req.body.query
+    const getData = {
+        method: 'GET',
+        url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
+        headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+        contentType: 'application/json',
+        success: function(result){
+            fetch(result)
+            .then((apiResponse) => {
+            console.log('Food item: ', query)
+        })
+        }
+    }
+    console.log(getData);
 })
 
 // edit route -> GET that takes us to the edit form view

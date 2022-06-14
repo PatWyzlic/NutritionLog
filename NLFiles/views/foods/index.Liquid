@@ -26,7 +26,7 @@
                         <h5 class="card-header">{{food.name}}</h5>
                     </td>
                     <td>
-                        <h5>{{ food.calories }}</h5>
+                        <h5> {{ food.items[8].calories }}</h5>
                     </td>
                     <td>    
                     <a href="/foods/{{ food.id }}"  class="btn btn-info">
@@ -48,5 +48,9 @@
         </table>
         <a href="/foods/new" class="btn btn-primary">New Food</a>
         {% endif %}
+        <form action="/foods" method="POST">
+            <input type="text" name="query" placeholder="Food Name">
+            <input type="submit">
+        </form>
     </div>
 {% endblock %}

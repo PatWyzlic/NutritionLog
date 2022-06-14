@@ -16,6 +16,7 @@ const middleware = require('./utils/middleware')
 //Include middleware
 middleware(app)
 
+
 //Routes
 app.use('/goals', GoalRouter)
 app.use('/foods', FoodRouter)

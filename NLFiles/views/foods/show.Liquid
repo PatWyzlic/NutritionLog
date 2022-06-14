@@ -5,6 +5,8 @@
             <h1> Show page </h1>
             <h2>
                 {{ food.name }} 
+            <h4>Sugar Content: {{ food.items[0].sugar_g }}</h4>
+            <h4>Calories: {{ food.items[8].calories }} </h4>
             </h2>
                 <div class="btn-group">
                     <a href="/foods/{{ food.id }}/edit" class="btn btn-primary">Edit</a>
