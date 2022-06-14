@@ -1,6 +1,7 @@
 // Import Dependencies
 const express = require('express')
 const Food = require('../models/food')
+const YOUR_API_KEY = process.env.API_KEY
 
 // Create router
 const router = express.Router()
@@ -60,12 +61,7 @@ router.get('/mine', (req, res) => {
 router.get('/new', (req, res) => {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
-	res.render('foods/new', { username, loggedIn })
-})
 
-router.get('/api.calorieninjas.com/v1/nutrition?query='+query, (req, res) => {
-	const username = req.session.username
-	const loggedIn = req.session.loggedIn
 	res.render('foods/new', { username, loggedIn })
 })
 
