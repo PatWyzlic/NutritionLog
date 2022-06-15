@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/foods/{{ food.id }}?_method=PUT" method="POST">
+    <form action="/foods/{{ food._id }}?_method=UPDATE" method="POST">
         <fieldset>
             <legend>Edit Food</legend>
             <label class="form-label">Name:</label>
@@ -20,6 +20,83 @@
                 class="form-control"
                 value="{{ food.items[0].calories }}"
             > 
+            Sugar:<input 
+                type="number" 
+                name="sugar_g"
+                placeholder="Enter sugar grams"
+                class="form-control"\
+                value="{{ food.items[0].sugar_g }}"
+            >
+            Fiber:<input 
+                type="number" 
+                name="fiber_g"
+                placeholder="Enter fiber grams"
+                class="form-control"
+                value="{{ food.items[0].fiber_g }}"
+            >
+            Serving Size<input 
+                type="number" 
+                name="serving_size_g"
+                placeholder="Enter serving size grams"
+                class="form-control"
+                value="{{ food.items[0].serving_size_g }}"
+            >
+            Sodium:<input 
+                type="number" 
+                name="sodium_mg"
+                placeholder="Enter sodium mg"
+                class="form-control"
+                value="{{ food.items[0].sodium_mg }}"
+            >
+            Potassium:<input 
+                type="number" 
+                name="potassium_mg"
+                placeholder="Enter potassium mg"
+                class="form-control"
+                value="{{ food.items[0].potassium_mg }}"
+            >
+            Saturated Fat:<input 
+                type="number" 
+                name="fat_saturated_g"
+                placeholder="Enter saturated fat g"
+                class="form-control"
+                value="{{ food.items[0].fat_saturated_g}}"
+            >
+            Total Fat:<input 
+                type="number" 
+                name="fat_total_g"
+                placeholder="Enter total fat grams"
+                class="form-control"
+                value="{{ food.items[0].fat_total_g }}"
+            >
+            Calories:<input 
+                type="number" 
+                name="calories"
+                placeholder="Enter calories"
+                class="form-control"
+                value="{{ food.items[0].calories }}"
+            >
+            Cholesterol:<input 
+                type="number" 
+                name="cholesterol_mg"
+                placeholder="Enter cholesterol mg"
+                class="form-control"
+                value="{{ food.items[0].cholesterol_mg }}"
+            >
+            Protein:<input 
+                type="number" 
+                name="protein_g"
+                placeholder="Enter protein g"
+                class="form-control"
+                value="{{ food.items[0].protein_g }}"
+            >
+            Number:<input 
+                type="number" 
+                name="carbohydrates_total_g"
+                placeholder="Enter total carbs g"
+                class="form-control"
+                value="{{ food.items[0].carbohydrates_total_g }}"
+            >
         </fieldset>
         <input type="submit" class="btn btn-success" value="Edit {{ food.name }}">
     </form>

@@ -2,7 +2,6 @@
 const express = require('express')
 const Food = require('../models/food')
 const YOUR_API_KEY = process.env.API_KEY
-const fetch = require("node-fetch")
 const mongoose = require('../models/connection')
 const db = mongoose.connection;
 
