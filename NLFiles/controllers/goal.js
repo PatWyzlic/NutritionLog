@@ -19,16 +19,17 @@ router.use((req, res, next) => {
 })
 
 // Routes
-// index ALL foods route
+// index ALL goals route
 router.get('/', (req, res) => {
 	// find the foods
 	Goal.find({})
 		// then render a template AFTER they're found
 		.then((goals) => {
+			console.log(goals)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			// console.log(foods)
-			res.render('goals/index', { goals, username, loggedIn })
+			let weight = goals.weight
+			res.render('goals/index', { goals, weight, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -43,17 +44,22 @@ router.get('/goals', (req, res) => {
 	Goal.find({ username: req.session.username })
 		// then render a template AFTER they're found
 		.then((goals) => {
-			// console.log(foods)
+			console.log(goals)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-
-			res.render('goals/index', { goal, username, loggedIn })
+			let weight = goals.weight
+			res.render('goals/index', { goals, weight, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
 			console.log(error)
 			res.json({ error })
 		})
+})
+
+// index that shows only the user's foods
+router.post('/goals', (req, res) => {
+
 })
 
 // edit route -> GET that takes us to the edit form view

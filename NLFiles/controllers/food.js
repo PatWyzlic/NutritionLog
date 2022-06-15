@@ -189,7 +189,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 	// get the id
 	const foodId = req.params.id
-	Food.findByIdAndUpdate(foodId, req.body, { new: true })
+	Food.findByIdAndUpdate(foodId, req.body)
 		// if successful -> redirect to the food page
 		.then((food) => {
 			console.log('the updated food', food)
@@ -212,6 +212,7 @@ router.get('/:id', (req, res) => {
 			const loggedIn = req.session.loggedIn
 
 			res.render('foods/show', { food, username, loggedIn })
+			res.redirect('/foods/foodId/edit')
 		})
 		// if there is an error, show that instead
 		.catch((err) => {
