@@ -45,11 +45,11 @@
             {% endfor %}
         </div>
         </table>
-        <a href="/foods/new" class="btn btn-primary">New Food</a>
         <form action="/foods" method="POST">
-            <input type="text" name="query" placeholder="Food Name">
+            <input type="text" name="query" placeholder="Ex. 200 grams oats ">
             <input type="submit">
         </form>
+        <a href="/foods/new" class="btn btn-primary">Create Food</a>
         {% endif %}
     </div>
 {% endblock %}

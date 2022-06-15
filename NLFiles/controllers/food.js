@@ -88,18 +88,39 @@ router.post('/', (req, res) => {
     .then((food) => {
         console.log(food)
         let test = food.items[0].sugar_g;
+        let test2 = food.items[0].fiber_g;
+        let test3 = food.items[0].serving_size_g;
+        let test4 = food.items[0].sodium_mg;
+        let test5 = food.items[0].name;
+        let test6 = food.items[0].potassium_mg;
+        let test7 = food.items[0].fat_saturated_g;
+        let test8 = food.items[0].fat_total_g;
+        let test9 = food.items[0].calories;
+        let test10 = food.items[0].cholesterol_mg;
+        let test11 = food.items[0].protein_g;
+        let test12 = food.items[0].carbohydrates_total_g;
         const newFoods = {
-            name: query,
+            name: test5,
             username: username,
             "items": [
               {
-                "sugar_g": test
-                
+                "sugar_g": test,
+                "fiber_g": test2,
+                "serving_size_g": test3,
+                "sodium_mg": test4,
+                "name": test5,
+                "potassium_mg": test6,
+                "fat_saturated_g": test7,
+                "fat_total_g": test8,
+                "calories": test9,
+                "cholesterol_mg": test10,
+                "protein_g": test11,
+                "carbohydrates_total_g": test12
               }
             ]
         }
         Food.create(newFoods)
-        console.log(test)
+        res.redirect('/foods')
     })
     .catch(function(error){
         console.log(error)
