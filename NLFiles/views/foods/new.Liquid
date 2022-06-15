@@ -4,7 +4,7 @@
         <form action="/foods" method="POST">
             <fieldset>
                 <legend>Create New Food</legend>
-                <label class="form-label">Name: </label>
+                <label class="form-label">Food Name: </label>
                     <input 
                         type="text" 
                         name="name"
@@ -12,19 +12,40 @@
                         class="form-control"
                         required
                     >
-                <label class="form-label">Calories: </label>
-                    <input 
-                        type="number" 
-                        name="calories"
-                        placeholder="enter calories"
-                        class="form-control"
-                    >
                 <label class="form-label">Username: </label>
                     <input readonly
                         type="text" 
                         name="username"
                         class="form-control"
                         value="{{ username }}"
+                    >
+                <label class="form-label">sugar_g: </label>
+                    <input 
+                        type="number" 
+                        name="items[0].sugar_g"
+                        placeholder="enter food name"
+                        class="form-control"
+                    >
+                <label class="form-label">fiber_g: </label>
+                    <input 
+                        type="number" 
+                        name="fiber_g"
+                        placeholder="enter food name"
+                        class="form-control"
+                    >
+                <label class="form-label">serving_size_g: </label>
+                    <input 
+                        type="number" 
+                        name="serving_size_g"
+                        placeholder="enter serving size"
+                        class="form-control"
+                    >
+                <label class="form-label">Calories: </label>
+                    <input 
+                        type="number" 
+                        name="calories"
+                        placeholder="enter calories"
+                        class="form-control"
                     >
             </fieldset>
             <input 

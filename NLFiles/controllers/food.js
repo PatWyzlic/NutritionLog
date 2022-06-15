@@ -3,6 +3,9 @@ const express = require('express')
 const Food = require('../models/food')
 const YOUR_API_KEY = process.env.API_KEY
 const fetch = require("node-fetch")
+const mongoose = require('../models/connection')
+const db = mongoose.connection;
+
 
 // Create router
 const router = express.Router()
@@ -30,7 +33,7 @@ router.get('/', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			// console.log(foods)
-			res.render('foods/index', { foods, username, loggedIn })
+			res.render('foods/index', { foods })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -68,7 +71,8 @@ router.get('/new', (req, res) => {
 
 // create -> POST route that calls the db and makes a new document
 router.post('/', (req, res) => {
-	req.body.username = req.session.username
+	const username = req.session.username
+    const loggedIn = req.session.loggedIn
     let query = req.body.query
     let headersList = {
         "X-API-KEY": "1RT14o/KGYDrVlJRZFVwDg==3XTvEdFI8JODs5hr"
@@ -76,11 +80,20 @@ router.post('/', (req, res) => {
     fetch(`https://api.calorieninjas.com/v1/nutrition?query=${query}`, { 
         method: "GET",
         headers: headersList
-    }).then(function(response) {
-        return response.json();
-        Food.create(req.body)
-    }).then(function(data) {
+    })
+    .then(function(response) {
+        db.find({}, (err, data))
+        const foodData = response.json()
+        res.render('foods/show', { foodData })
+    })
+    .then((food) => {
+            console.log(food)
+    })
+    .then(function(data) {
         console.log(data);
+    })
+    .catch(function(error){
+        console.log(error)
     })
 })
 
@@ -92,10 +105,10 @@ router.get('/:id/edit', (req, res) => {
 	Food.findById(foodId)
 		// -->render if there is a food
 		.then((food) => {
-			console.log('edit froot', food)
+			console.log('edit food', food)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.render('foods/edit', { food, username, loggedIn })
+			res.render('foods/edit', { foods, username, loggedIn })
 		})
 		// -->error if no food
 		.catch((err) => {

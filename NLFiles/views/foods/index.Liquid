@@ -8,7 +8,6 @@
     <div >
         <h1> My Nutrition Log </h1>
         Date: {{ "now" | date: "%Y-%m-%d" }} </br>
-        {{ username.weight }}
         {% if user.username == food.username %}
         <table>
         <div class="row">
@@ -23,10 +22,10 @@
             {% for food in foods %}
                 <tr><div class="card" style="width: 100%;">
                     <td>
-                        <h5 class="card-header">{{food.name}}</h5>
+                        <h5 class="card-header">{{ food.name }}</h5>
                     </td>
                     <td>
-                        <h5> {{ food.items[8].calories }}</h5>
+                        <h5> {{ Food.items[8].calories }}</h5>
                     </td>
                     <td>    
                     <a href="/foods/{{ food.id }}"  class="btn btn-info">
@@ -47,10 +46,10 @@
         </div>
         </table>
         <a href="/foods/new" class="btn btn-primary">New Food</a>
-        {% endif %}
         <form action="/foods" method="POST">
             <input type="text" name="query" placeholder="Food Name">
             <input type="submit">
         </form>
+        {% endif %}
     </div>
 {% endblock %}

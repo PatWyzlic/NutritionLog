@@ -3,10 +3,18 @@
     <div class="container-md">
         <article>
             <h1> Show page </h1>
-            <h2>
-                {{ food.name }} 
+            <h2> {{ food.name | capitalize}} </h2>
+            <h4>Serving size grams: {{ food.items[0].serving_size_g }}</h4>
+            <h4>Calories: {{ food.items[0].calories }}</h4>
             <h4>Sugar Content: {{ food.items[0].sugar_g }}</h4>
-            <h4>Calories: {{ food.items[8].calories }} </h4>
+            <h4>Fiber Content: {{ food.items[0].fiber_g }}</h4>
+            <h4>Sodium Content mg: {{ food.items[0].sodium_mg }}</h4>
+            <h4>Potassium Content: {{ food.items[0].potassium_mg }}</h4>
+            <h4>Saturated Fat grams: {{ food.items[0].fat_saturated_g }}</h4>
+            <h4>Total Fat grams: {{ food.items[0].fat_total_g }}</h4>
+            <h4>Cholesterol mg: {{ food.items[0].cholesterol_mg }}</h4>
+            <h4>Protein g: {{ food.items[0].protein_g }}</h4>
+            <h4>Total Carbohydrates grams: {{ food.items[0].carbohydrates_total_g }}</h4>
             </h2>
                 <div class="btn-group">
                     <a href="/foods/{{ food.id }}/edit" class="btn btn-primary">Edit</a>

@@ -47,7 +47,7 @@ router.get('/goals', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 
-			res.render('goals/index', { goals, username, loggedIn })
+			res.render('goals/index', { goal, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {

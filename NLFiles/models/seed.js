@@ -10,6 +10,7 @@ db.on('open', () => {
 	// array of starter foods
 	const startFoods = {
         name: 'pizza',
+        username: '',
         "items": [
           {
             "sugar_g": 13.3,
