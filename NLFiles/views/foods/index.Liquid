@@ -22,10 +22,10 @@
             {% for food in foods %}
                 <tr><div class="card" style="width: 100%;">
                     <td>
-                        <h5 class="card-header">{{ food.name }}</h5>
+                        <h5 class="card-header">{{ food.name | capitalize }}</h5>
                     </td>
                     <td>
-                        <h5> {{ Food.items[8].calories }}</h5>
+                        <h5> {{ food.items[0].calories }}</h5>
                     </td>
                     <td>    
                     <a href="/foods/{{ food.id }}"  class="btn btn-info">

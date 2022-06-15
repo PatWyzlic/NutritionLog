@@ -82,15 +82,24 @@ router.post('/', (req, res) => {
         headers: headersList
     })
     .then(function(response) {
-        db.find({}, (err, data))
-        const foodData = response.json()
-        res.render('foods/show', { foodData })
+        return response.json()
+        //res.render('foods/index', { foodData })
     })
     .then((food) => {
-            console.log(food)
-    })
-    .then(function(data) {
-        console.log(data);
+        console.log(food)
+        let test = food.items[0].sugar_g;
+        const newFoods = {
+            name: query,
+            username: username,
+            "items": [
+              {
+                "sugar_g": test
+                
+              }
+            ]
+        }
+        Food.create(newFoods)
+        console.log(test)
     })
     .catch(function(error){
         console.log(error)
