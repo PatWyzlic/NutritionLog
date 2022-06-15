@@ -33,7 +33,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="/foods/{{ food.id }}/edit" class="btn btn-primary">Edit</a>
+                        <a href="/foods/{{ food._id }}/edit" class="btn btn-primary">Edit</a>
                     </td>
                     <td><form action="/foods/{{ food._id }}?_method=DELETE" method="POST">
                         <input type="submit" value="Delete" class="btn btn-danger">

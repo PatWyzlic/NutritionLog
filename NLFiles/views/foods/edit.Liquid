@@ -3,7 +3,7 @@
 <div class="container-sm">
     <form action="/foods/{{ food.id }}?_method=PUT" method="POST">
         <fieldset>
-            <legend>Edit New Food</legend>
+            <legend>Edit Food</legend>
             <label class="form-label">Name:</label>
             <input 
                 type="text" 
@@ -18,7 +18,7 @@
                 name="calories" 
                 placeholder="enter calorie amount"
                 class="form-control"
-                value="{{ food.calories }}"
+                value="{{ food.items[0].calories }}"
             > 
         </fieldset>
         <input type="submit" class="btn btn-success" value="Edit {{ food.name }}">

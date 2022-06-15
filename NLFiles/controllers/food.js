@@ -138,7 +138,7 @@ router.get('/:id/edit', (req, res) => {
 			console.log('edit food', food)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.render('foods/edit', { foods, username, loggedIn })
+			res.render('foods/edit', { food, username, loggedIn })
 		})
 		// -->error if no food
 		.catch((err) => {
