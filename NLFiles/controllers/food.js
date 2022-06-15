@@ -69,6 +69,45 @@ router.get('/new', (req, res) => {
 	res.render('foods/new', { username, loggedIn })
 })
 
+router.post('/new', (req, res) => {
+	// find the foods
+    let username = req.session.username
+    let name = req.body.name
+	let sugar = req.body.sugar_g;
+    let fiber = req.body.fiber_g;
+    let servingSize = req.body.serving_size_g;
+    let sodium = req.body.sodium_mg;
+    let potassium = req.body.potassium_mg;
+    let fatSaturated = req.body.fat_saturated_g;
+    let fatTotal = req.body.fat_total_g;
+    let calories = req.body.calories;
+    let cholesterol = req.body.cholesterol_mg;
+    let protein = req.body.protein_g;
+    let carbohydrates = req.body.carbohydrates_total_g;
+        const newFoods = {
+            name: name,
+            username: username,
+            "items": [
+              {
+                "sugar_g": sugar,
+                "fiber_g": fiber,
+                "serving_size_g": servingSize,
+                "sodium_mg": sodium,
+                "name": name,
+                "potassium_mg": potassium,
+                "fat_saturated_g": fatSaturated,
+                "fat_total_g": fatTotal,
+                "calories": calories,
+                "cholesterol_mg": cholesterol,
+                "protein_g": protein,
+                "carbohydrates_total_g": carbohydrates
+              }
+            ]
+        }
+        Food.create(newFoods)
+        res.redirect('/foods')
+})
+
 // create -> POST route that calls the db and makes a new document
 router.post('/', (req, res) => {
 	const username = req.session.username

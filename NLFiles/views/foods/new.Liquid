@@ -1,50 +1,81 @@
 {% layout 'layout.liquid' %}
 {% block content %}
     <div class="container-sm">
-        <form action="/foods" method="POST">
+        <form action="/foods/new" method="POST">
             <fieldset>
                 <legend>Create New Food</legend>
-                <label class="form-label">Food Name: </label>
-                    <input 
+                <label class="form-label"></label>
+                    Food Name: <input 
                         type="text" 
                         name="name"
-                        placeholder="enter food name"
+                        placeholder="Enter food name"
                         class="form-control"
                         required
                     >
-                <label class="form-label">Username: </label>
-                    <input readonly
-                        type="text" 
-                        name="username"
-                        class="form-control"
-                        value="{{ username }}"
-                    >
-                <label class="form-label">sugar_g: </label>
-                    <input 
+                    Sugar:<input 
                         type="number" 
-                        name="items[0].sugar_g"
-                        placeholder="enter food name"
+                        name="sugar_g"
+                        placeholder="Enter sugar grams"
                         class="form-control"
                     >
-                <label class="form-label">fiber_g: </label>
-                    <input 
+                    Fiber:<input 
                         type="number" 
                         name="fiber_g"
-                        placeholder="enter food name"
+                        placeholder="Enter fiber grams"
                         class="form-control"
                     >
-                <label class="form-label">serving_size_g: </label>
-                    <input 
+                    Serving Size<input 
                         type="number" 
                         name="serving_size_g"
-                        placeholder="enter serving size"
+                        placeholder="Enter serving size grams"
                         class="form-control"
                     >
-                <label class="form-label">Calories: </label>
-                    <input 
+                    Sodium:<input 
+                        type="number" 
+                        name="sodium_mg"
+                        placeholder="Enter sodium mg"
+                        class="form-control"
+                    >
+                    Potassium:<input 
+                        type="number" 
+                        name="potassium_mg"
+                        placeholder="Enter potassium mg"
+                        class="form-control"
+                    >
+                    Saturated Fat:<input 
+                        type="number" 
+                        name="fat_saturated_g"
+                        placeholder="Enter saturated fat mg"
+                        class="form-control"
+                    >
+                    Total Fat:<input 
+                        type="number" 
+                        name="fat_total_g"
+                        placeholder="Enter total fat grams"
+                        class="form-control"
+                    >
+                    Calories:<input 
                         type="number" 
                         name="calories"
-                        placeholder="enter calories"
+                        placeholder="Enter calories"
+                        class="form-control"
+                    >
+                    Cholesterol:<input 
+                        type="number" 
+                        name="cholesterol_mg"
+                        placeholder="Enter cholesterol mg"
+                        class="form-control"
+                    >
+                    Protein:<input 
+                        type="number" 
+                        name="protein_g"
+                        placeholder="Enter protein g"
+                        class="form-control"
+                    >
+                    Number:<input 
+                        type="number" 
+                        name="carbohydrates_total_g"
+                        placeholder="Enter total carbs g"
                         class="form-control"
                     >
             </fieldset>
