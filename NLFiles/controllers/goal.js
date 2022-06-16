@@ -1,5 +1,6 @@
 // Import Dependencies
 const express = require('express')
+const { db } = require('../models/goal')
 const Goal = require('../models/goal')
 
 // Create router
@@ -58,8 +59,17 @@ router.get('/goals', (req, res) => {
 })
 
 // index that shows only the user's foods
-router.post('/goals', (req, res) => {
-
+router.post('/', (req, res) => {
+	let username = req.session.username
+    let weight = req.body.weight
+	let calorieGoal = req.body.calorie_goal;
+	const newGoals = {
+		username: username,
+		weight: weight,
+		calorie_goal: { type: Number},
+	}
+	Goal.create(newGoals)
+	res.redirect('/goals')
 })
 
 // edit route -> GET that takes us to the edit form view

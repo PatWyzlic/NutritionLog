@@ -5,7 +5,7 @@
             <h1> Goals page </h1>
             {{ goals[0].weight }}
             {{ goals[0].calorie_goal }}
-                <fieldset>
+                <form action="/goals" method="POST">
                     <legend>Add Weight</legend>
                     <label class="form-label">Weight: </label>
                         <input 
@@ -13,7 +13,6 @@
                             name="weight"
                             placeholder="enter weight"
                             class="form-control"
-                            value="{{ goal.weight }}"
                             required
                         >
                     <label class="form-label">Add calorie goal: </label>
@@ -23,7 +22,7 @@
                             placeholder="enter calories"
                             class="form-control"
                         >
-                </fieldset>
+                        </form>
                 <input 
                     type="submit" 
                     value="Create New Goal"
