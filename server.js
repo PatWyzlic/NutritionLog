@@ -22,7 +22,6 @@ app.use('/goals', GoalRouter)
 app.use('/foods', FoodRouter)
 app.use('/user', UserRouter)
 app.use('/', HomeRouter)
-app.use('/favicon.ico', HomeRouter)
 
 //Listen to the server
 const PORT = process.env.PORT || '0.0.0.0/0';

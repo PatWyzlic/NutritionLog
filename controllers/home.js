@@ -9,9 +9,5 @@ router.get('/', (req, res) => {
     res.render('index.liquid')
 })
 
-router.get('/favicon.ico', (req, res) => {
-    res.render('index.liquid')
-})
-
 // Export Router
 module.exports = router
