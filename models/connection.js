@@ -5,14 +5,12 @@ const mongoose = require('mongoose')
 // database connection
 // here we are setting up inputs for our connect function
 const MONGODB_URI = process.env.MONGODB_URI
-const CONFIG = {
-    useNewUrlParser: true,
-	useCreateIndex: true,
-    useUnifiedTopology: true
-}
 
 // establish connection
-mongoose.connect(MONGODB_URI, CONFIG)
+mongoose.connect(MONGODB_URI, err => {
+	if(err) throw err;
+	console.log('connected to MongoDB')
+});
 
 // events for when our connection opens/closes/errors
 mongoose.connection
