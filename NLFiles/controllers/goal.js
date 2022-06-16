@@ -97,7 +97,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 	// get the id
 	const goalId = req.params.id
-	Goal.findByIdAndUpdate(foodId, req.body, { new: true })
+	Goal.findByIdAndUpdate(goalId, req.body, { new: true })
 		// if successful -> redirect to the food page
 		.then((food) => {
 			console.log('the updated food', food)

@@ -28,6 +28,7 @@
                         <h5> {{ food.items[0].calories }}</h5>
                     </td>
                     <td>    
+                    {% if username == food.username %}
                     <a href="/foods/{{ food._id }}"  class="btn btn-info">
                             View {{ food.name }}
                         </a>
@@ -39,6 +40,7 @@
                         <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                     </td>
+                    {% endif %}
                     
                 </div>
                 </tr>
