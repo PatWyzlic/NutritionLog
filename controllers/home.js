@@ -6,7 +6,10 @@ const router = express.Router()
 
 // Route
 router.get('/', (req, res) => {
-    res.redirect('/')
+    res.render('index.liquid')
+})
+
+router.get('/favicon.ico', (req, res) => {
     res.render('index.liquid')
 })
 
