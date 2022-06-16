@@ -8,6 +8,7 @@ const { Schema, model } = mongoose
 const goalSchema = new Schema({
     username: { type: String, required: true},
     weight: { type: Number },
+    goal_weight: { type: Number },
     calorie_goal: { type: Number},
 }, { timestamps: true })
 

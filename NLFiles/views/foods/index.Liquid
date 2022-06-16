@@ -6,7 +6,7 @@
 <!-- Page when user logs in -->
 {% block content %}
     <div >
-        <h1> My Nutrition Log </h1>
+        <h1> Nutrition Log </h1>
         Date: {{ "now" | date: "%Y-%m-%d" }} </br>
         {% if user.username == food.username %}
         <table>
@@ -27,10 +27,13 @@
                     <td>
                         <h5> {{ food.items[0].calories }}</h5>
                     </td>
+                    <td>
+                        <h6 style="font-size: 12px"> {{ food.createdAt }}</h6>
+                    </td>
                     <td>    
                     {% if username == food.username %}
                     <a href="/foods/{{ food._id }}"  class="btn btn-info">
-                            View {{ food.name }}
+                            View
                         </a>
                     </td>
                     <td>
