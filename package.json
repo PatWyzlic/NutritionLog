@@ -16,7 +16,7 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "seed": "node models/seed.js"
   },
   "name": "nlfiles",
