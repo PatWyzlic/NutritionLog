@@ -24,7 +24,8 @@ app.use('/user', UserRouter)
 app.use('/', HomeRouter)
 
 //Listen to the server
-const PORT = process.env.PORT || '0.0.0.0';
-app.listen(PORT || 3000, () => {
+const PORT = process.env.PORT || '0.0.0.0/0';
+app.listen(PORT, () => {
     console.log(`app is listening to port ${PORT}`)
 })
+
