@@ -189,11 +189,31 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 	// get the id
 	const foodId = req.params.id
-	Food.findByIdAndUpdate(foodId, req.body, { new: true })
+	const username = req.session.username
+	console.log(req.body)
+        const newFoods = {
+			name: req.body.name,
+			username: username,
+			"items": [
+			{
+				"sugar_g": req.body.sugar_g,
+				"fiber_g": req.body.fiber_g,
+				"serving_size_g": req.body.serving_size_g,
+				"sodium_mg": req.body.sodium_mg,
+				"name": req.body.name,
+				"potassium_mg": req.body.potassium_mg,
+				"fat_saturated_g": req.body.fat_saturated_g,
+				"fat_total_g": req.body.fat_total_g,
+				"calories": req.body.calories,
+				"cholesterol_mg": req.body.cholesterol_mg,
+				"protein_g": req.body.protein_g,
+				"carbohydrates_total_g": req.body.carbohydrates_total_g
+			},
+			]
+		}
+	Food.findOneAndUpdate(foodId, {$set: newFoods})
 		// if successful -> redirect to the food page
 		.then((food) => {
-			food.name = req.body.name
-			food.items[0].sugar_g = req.body.sugar_g
 			console.log('the updated food', food)
 			res.redirect(`/foods/${food.id}`)
 		})
@@ -211,7 +231,8 @@ router.get('/:id', (req, res) => {
 		.then((food) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.redirect(`/foods/${foodId}/edit`)
+
+			res.render('foods/show', { food, username, loggedIn })
 		})
 		// if there is an error, show that instead
 		.catch((err) => {
