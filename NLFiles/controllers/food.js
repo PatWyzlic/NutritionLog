@@ -189,11 +189,12 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 	// get the id
 	const foodId = req.params.id
-	Food.findByIdAndUpdate(foodId, req.body)
+	Food.findByIdAndUpdate(foodId, req.body, { new: true })
 		// if successful -> redirect to the food page
 		.then((food) => {
+			food.name = req.body.name
+			food.items[0].sugar_g = req.body.sugar_g
 			console.log('the updated food', food)
-
 			res.redirect(`/foods/${food.id}`)
 		})
 		// if an error, display that
@@ -210,9 +211,7 @@ router.get('/:id', (req, res) => {
 		.then((food) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-
-			res.render('foods/show', { food, username, loggedIn })
-			res.redirect('/foods/foodId/edit')
+			res.redirect(`/foods/${foodId}/edit`)
 		})
 		// if there is an error, show that instead
 		.catch((err) => {

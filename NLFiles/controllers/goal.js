@@ -68,6 +68,7 @@ router.post('/', (req, res) => {
 		weight: weight,
 		calorie_goal: { type: Number},
 	}
+	.then((goal))
 	Goal.create(newGoals)
 	res.redirect('/goals')
 })
@@ -75,9 +76,9 @@ router.post('/', (req, res) => {
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
-	const weightId = req.params.id
+	const goalId = req.params.id
 	// find the food
-	Weight.findById(weightId)
+	Goal.findById(goalId)
 		// -->render if there is a food
 		.then((goals) => {
 			console.log('edit goals', goals)
