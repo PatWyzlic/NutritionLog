@@ -139,7 +139,7 @@ router.post('/', (req, res) => {
             name: test5,
             username: username,
             "items": [
-              {
+            {
                 "sugar_g": test,
                 "fiber_g": test2,
                 "serving_size_g": test3,
@@ -152,7 +152,7 @@ router.post('/', (req, res) => {
                 "cholesterol_mg": test10,
                 "protein_g": test11,
                 "carbohydrates_total_g": test12
-              }
+            }
             ]
         }
 		//Create new food taken from API
