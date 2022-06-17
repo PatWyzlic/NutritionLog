@@ -31,6 +31,9 @@
 </ul>
 
 <h2>Icebox:</h2>
+<ul>
+  <li>Select day for food entry</li>
+</ul>
 
 <h2>Wireframes:</h2>
 <img src="https://user-images.githubusercontent.com/96600690/173129046-c95392dd-0490-4d96-8a86-96e361ed0332.png" style="width: 500px"/>
