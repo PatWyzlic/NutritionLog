@@ -32,5 +32,11 @@
 <img src="https://user-images.githubusercontent.com/96600690/173129046-c95392dd-0490-4d96-8a86-96e361ed0332.png"/>
 
 <h2>Models:</h2>
+<ul>
+  <li>User</li>
+  <li>Food</li>
+  <li>Goal</li>
+</ul>
+
 <h2>ERD</h2>
 <img src="https://user-images.githubusercontent.com/96600690/174311809-fbe8263f-bfb2-4e49-9eab-5cc766a93b9c.png"/>
