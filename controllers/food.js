@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 		.then((foods) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.render('foods/index', { foods, username})
+			res.render('foods/index', { foods, username, loggedIn})
 		})
 		// show an error if there is one
 		.catch((error) => {

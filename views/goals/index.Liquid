@@ -6,15 +6,37 @@
             <a href="/goals/new" class="btn btn-primary">Create New Goal</a>
             {% assign arrayNumber = arrayLength %}
             {% for goal in goals %}
-                {% if username == goal.username %}
                 {% assign arrayNumber = arrayNumber | minus: 1 %}
-                <h4>{{ goals[arrayNumber].createdAt }} </h4>
-                <h3>Current Weight: </h3>
-                <h4>{{ goals[arrayNumber].weight }} </h4>
-                <h3>Goal Weight: </h3>
-                <h4>{{ goals[arrayNumber].goal_weight }} </h4>
-                <h3>Calorie goal: </h3>
-                <h4>{{ goals[arrayNumber].calorie_goal }} </h4>
+                {% if username == goal.username %}
+                <h3>{{ goals[arrayNumber].createdAt }}</h3>
+                <hr>
+                <table style="width: 100%" class="table">
+                    <div class="row">
+                        <tr>
+                            <th scope="col">
+                                <h3>Current weigth</h3>
+                            </th>
+                            <th scope="col">
+                                <h3>Goal weigth</h3>
+                            </th>
+                            <th scope="col">
+                                <h3>Goal Calories</h3>
+                            </th>
+                        </tr>
+                        <td>
+                            <h3>{{ goals[arrayNumber].weight }} 
+                            </h3>
+                        </td>
+                        <td>
+                            <h3>{{ goals[arrayNumber].goal_weight }}
+                            </h3>
+                        </td>
+                        <td>
+                            <h3>{{ goals[arrayNumber].calorie_goal }} 
+                            </h3>
+                        </td>
+                    </div>
+                </table>
             </br>
                 {% endif %}
             {% endfor %}

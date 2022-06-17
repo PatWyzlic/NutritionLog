@@ -14,18 +14,22 @@
         <body>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a href="/goals" class="navbar-brand">Nutrition Log</a>
+                    <a href="" class="navbar-brand">Nutrition Log</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <a href="/foods" class="nav-link text-light">All Foods</a>
-                        <a href="/foods/mine" class="nav-link text-light">My Foods</a>
-                        <a href="/goals" class="nav-link text-light">My Goals</a>
-                        <a href="/user/signup" class="nav-link text-light">Sign Up</a>
-                        <a href="/user/logout" class="nav-link text-light">Log Out</a>
                         {% if loggedIn %}
+                            <a href="/foods" class="nav-link text-light">My Foods</a>
+                            <a href="/foods" class="nav-link text-light">All Foods</a>
+                            <a href="/goals" class="nav-link text-light">My Goals</a>
                             <a href="/foods/mine" class="nav-link text-light">Profile: {{ username }} </a>
+                            <a href="/user/logout" class="nav-link text-light">Log Out</a>
+                        {% endif %}
+                        {% if loggedIn != true %}
+                            <a href="/" class="nav-link text-light">Starter Page</a>
+                            <a href="/user/signup" class="nav-link text-light">Sign Up</a>
+                            <a href="/user/login" class="nav-link text-light">Log In</a>
                         {% endif %}
                     </div>
                 </div>

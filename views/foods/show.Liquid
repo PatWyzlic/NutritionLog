@@ -15,7 +15,6 @@
             <h4>Cholesterol mg: {{ food.items[0].cholesterol_mg }}</h4>
             <h4>Protein g: {{ food.items[0].protein_g }}</h4>
             <h4>Total Carbohydrates grams: {{ food.items[0].carbohydrates_total_g }}</h4>
-            </h2>
                 <div class="btn-group">
                     <a href="/foods/{{ food.id }}/edit" class="btn btn-primary">Edit</a>
                     <form action="/foods/{{ food._id }}?_method=DELETE" method="POST">

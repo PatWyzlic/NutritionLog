@@ -9,15 +9,27 @@
         <h1> Nutrition Log </h1>
         Date: {{ "now" | date: "%Y-%m-%d" }} </br>
         {% if user.username == food.username %}
-        <table style="width: 100%">
+        <table style="width: 100%" class="table">
         <div class="row">
             <tr>
-                <td>
+                <th scope="col">
                     <h4>Food</h4>
-                </td>
-                <td>
+                </th>
+                <th scope="col">
                     <h4>Calories</h4>
-                </td>
+                </th>
+                <th scope="col">
+                    <h4>Date</h4>
+                </th>
+                <th scope="col">
+                    <h4>View</h4>
+                </th>
+                <th scope="col">
+                    <h4>Edit</h4>
+                </th>
+                <th scope="col">
+                    <h4>Delete</h4>
+                </th>
             </tr>
             {% assign total = 0 %}
             {% for food in foods %}

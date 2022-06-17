@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
                     req.session.username = username
                     req.session.loggedIn = true
                     // redirect to /foods if login is successful
-                    res.redirect('/foods')
+                    res.redirect('/foods/mine')
                 } else {
                     // send an error if the password doesnt match
                     res.json({ error: 'username or password incorrect'})
