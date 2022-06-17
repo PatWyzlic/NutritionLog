@@ -19,12 +19,15 @@
                     <h4>Calories</h4>
                 </td>
             </tr>
+            {% assign total = 0 %}
             {% for food in foods %}
-                <tr><div class="card" style="width: 100%;">
+                <tr>
+                    <div class="card" style="width: 100%;">
                     <td>
                         <h5 class="card-header">{{ food.name | capitalize }}</h5>
                     </td>
                     <td>
+                        {% assign total = total | plus: food.items[0].calories %}
                         <h5> {{ food.items[0].calories }} </h5>
                     </td>
                     <td>
@@ -44,7 +47,6 @@
                     </form>
                     </td>
                     {% endif %}
-                    
                 </div>
                 </tr>
             {% endfor %}
@@ -58,6 +60,9 @@
         </form>
     </br>
         <a href="/foods/new" class="btn btn-primary">Create New Food</a>
+    </br>
+        Total calories: {{ total }} 
         {% endif %}
+    
     </div>
 {% endblock %}

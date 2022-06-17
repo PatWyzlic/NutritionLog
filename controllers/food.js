@@ -103,7 +103,7 @@ router.post('/new', (req, res) => {
             ]
         }
         Food.create(newFoods)
-        res.redirect('/foods')
+        res.redirect('/foods/mine')
 })
 
 // create -> POST route that calls the db and makes a new document
