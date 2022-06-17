@@ -1,6 +1,5 @@
 // Import Dependencies
 const express = require('express')
-const { db } = require('../models/goal')
 const Goal = require('../models/goal')
 
 // Create router
@@ -39,7 +38,7 @@ router.get('/', (req, res) => {
 		})
 })
 
-// index that shows only the user's foods
+// index that shows only the user's goals
 router.get('/goals', (req, res) => {
 	// find the foods
 	Goal.find({ username: req.session.username })
@@ -49,7 +48,7 @@ router.get('/goals', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			let weight = goals.weight
-			res.render('goals/index', { goals, weight, username, loggedIn })
+			res.render('goals/index', { goals, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -58,17 +57,27 @@ router.get('/goals', (req, res) => {
 		})
 })
 
+router.get('/new', (req, res) => {
+	const username = req.session.username
+	const loggedIn = req.session.loggedIn
+
+	res.render('goals/new', { username, loggedIn })
+})
+
 // index that shows only the user's foods
-router.post('/', (req, res) => {
-	let username = req.session.username
+router.post('/new', (req, res) => {
+	let theUsername = req.session.username
     let weight = req.body.weight
+	let goalWeight = req.body.goal_weight
 	let calorieGoal = req.body.calorie_goal;
 	const newGoals = {
-		username: username,
+		username: theUsername,
 		weight: weight,
-		calorie_goal: { type: Number},
+		goal_weight: goalWeight,
+		calorie_goal: calorieGoal
 	}
-	.then((goal))
+	console.log(newGoals)
+	Goal.deleteMany({username: theUsername})
 	Goal.create(newGoals)
 	res.redirect('/goals')
 })
@@ -77,9 +86,9 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
 	const goalId = req.params.id
-	// find the food
+	// find the goal
 	Goal.findById(goalId)
-		// -->render if there is a food
+		// -->render if there is a goal
 		.then((goals) => {
 			console.log('edit goals', goals)
 			const username = req.session.username
@@ -100,6 +109,7 @@ router.put('/:id', (req, res) => {
 	Goal.findByIdAndUpdate(goalId, req.body, { new: true })
 		// if successful -> redirect to the food page
 		.then((food) => {
+			req.body.weight
 			console.log('the updated food', food)
 
 			res.redirect(`/foods/${food.id}`)

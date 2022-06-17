@@ -1,0 +1,34 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div class="container-sm">
+        <form action="/goals/new" method="POST">
+            <legend>Add Weight</legend>
+                <label class="form-label">Weight: </label>
+                <input 
+                    type="number" 
+                    name="weight"
+                    placeholder="enter current weight"
+                    class="form-control"
+                >
+                <label class="form-label">Add goal weight: </label>
+                <input 
+                    type="number" 
+                    name="goal_weight"
+                    placeholder="enter goal weight"
+                    class="form-control"
+                >
+                <label class="form-label">Add calorie goal: </label>
+                <input 
+                    type="number" 
+                    name="calorie_goal"
+                    placeholder="enter calorie goal"
+                    class="form-control"
+                >
+                <input 
+                    type="submit" 
+                    value="Create New Goal"
+                    class="btn btn-success"
+                >
+                </form>
+    </div>
+{% endblock %}

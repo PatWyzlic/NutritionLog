@@ -5,33 +5,11 @@
             <h1> Goals page </h1>
             <h3>Current Weight: </h3>
             <h4>{{ goals[0].weight }} </h4>
-            <h3>Current Weight: </h3>
-            <h4>{{ goals[0].weight }} </h4>
+            <h3>Goal Weight: </h3>
+            <h4>{{ goals[0].goal_weight }} </h4>
             <h3>Calorie goal: </h3>
             <h4>{{ goals[0].calorie_goal }} </h4>
-                <form action="/goals" method="POST">
-                    <legend>Add Weight</legend>
-                    <label class="form-label">Weight: </label>
-                        <input 
-                            type="number" 
-                            name="weight"
-                            placeholder="enter weight"
-                            class="form-control"
-                            required
-                        >
-                    <label class="form-label">Add calorie goal: </label>
-                        <input 
-                            type="number" 
-                            name="calorie_goal"
-                            placeholder="enter calories"
-                            class="form-control"
-                        >
-                        </form>
-                <input 
-                    type="submit" 
-                    value="Create New Goal"
-                    class="btn btn-success"
-                >
-            </form>
+        </article>
     </div>
+    <a href="/goals/new" class="btn btn-primary">Create New Goal</a>
 {% endblock %}

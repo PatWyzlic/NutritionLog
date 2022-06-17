@@ -87,7 +87,7 @@ router.post('/new', (req, res) => {
             name: name,
             username: username,
             "items": [
-              {
+            {
                 "sugar_g": sugar,
                 "fiber_g": fiber,
                 "serving_size_g": servingSize,
@@ -100,7 +100,7 @@ router.post('/new', (req, res) => {
                 "cholesterol_mg": cholesterol,
                 "protein_g": protein,
                 "carbohydrates_total_g": carbohydrates
-              }
+            }
             ]
         }
         Food.create(newFoods)
