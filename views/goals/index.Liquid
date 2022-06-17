@@ -3,13 +3,19 @@
     <div class="container-md">
         <article>
             <h1> Goals page </h1>
-            <h3>Current Weight: </h3>
-            <h4>{{ goals[0].weight }} </h4>
-            <h3>Goal Weight: </h3>
-            <h4>{{ goals[0].goal_weight }} </h4>
-            <h3>Calorie goal: </h3>
-            <h4>{{ goals[0].calorie_goal }} </h4>
+            <a href="/goals/new" class="btn btn-primary">Create New Goal</a>
+            {% assign arrayNumber = arrayLength %}
+            {% for goal in goals %}
+                {% assign arrayNumber = arrayNumber | minus: 1 %}
+                <h4>{{ goals[arrayNumber].createdAt }} </h4>
+                <h3>Current Weight: </h3>
+                <h4>{{ goals[arrayNumber].weight }} </h4>
+                <h3>Goal Weight: </h3>
+                <h4>{{ goals[arrayNumber].goal_weight }} </h4>
+                <h3>Calorie goal: </h3>
+                <h4>{{ goals[arrayNumber].calorie_goal }} </h4>
+            </br>
+            {% endfor %}
         </article>
     </div>
-    <a href="/goals/new" class="btn btn-primary">Create New Goal</a>
 {% endblock %}

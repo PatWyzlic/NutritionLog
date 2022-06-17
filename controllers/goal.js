@@ -25,11 +25,10 @@ router.get('/', (req, res) => {
 	Goal.find({})
 		// then render a template AFTER they're found
 		.then((goals) => {
-			console.log(goals)
+			let arrayLength = goals.length
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			let weight = goals.weight
-			res.render('goals/index', { goals, weight, username, loggedIn })
+			res.render('goals/index', { goals, arrayLength, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -40,15 +39,15 @@ router.get('/', (req, res) => {
 
 // index that shows only the user's goals
 router.get('/goals', (req, res) => {
-	// find the foods
+	// find the goals
 	Goal.find({ username: req.session.username })
 		// then render a template AFTER they're found
 		.then((goals) => {
-			console.log(goals)
+			console.log(goals.length)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			let weight = goals.weight
-			res.render('goals/index', { goals, username, loggedIn })
+
+			res.render('foods/index', { goals, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -77,7 +76,6 @@ router.post('/new', (req, res) => {
 		calorie_goal: calorieGoal
 	}
 	console.log(newGoals)
-	Goal.deleteMany({username: theUsername})
 	Goal.create(newGoals)
 	res.redirect('/goals')
 })

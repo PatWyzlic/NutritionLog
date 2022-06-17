@@ -47,7 +47,6 @@ router.get('/mine', (req, res) => {
 	Food.find({ username: req.session.username })
 		// then render a template AFTER they're found
 		.then((foods) => {
-			// console.log(foods)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 
