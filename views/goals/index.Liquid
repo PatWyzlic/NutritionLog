@@ -8,19 +8,18 @@
             {% for goal in goals %}
                 {% assign arrayNumber = arrayNumber | minus: 1 %}
                 {% if username == goal.username %}
-                <h3>{{ goals[arrayNumber].createdAt }}</h3>
-                <hr>
+                <h3  class="card-header">{{ goals[arrayNumber].createdAt }}</h3>
                 <table style="width: 100%" class="table">
                     <div class="row">
                         <tr>
                             <th scope="col">
-                                <h3>Current weigth</h3>
+                                <h3  class="card-header">Current weigth</h3>
                             </th>
                             <th scope="col">
-                                <h3>Goal weigth</h3>
+                                <h3  class="card-header">Goal weigth</h3>
                             </th>
                             <th scope="col">
-                                <h3>Goal Calories</h3>
+                                <h3  class="card-header">Goal Calories</h3>
                             </th>
                         </tr>
                         <td>
