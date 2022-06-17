@@ -2,6 +2,7 @@
 const express = require('express')
 const Goal = require('../models/goal')
 
+
 // Create router
 const router = express.Router()
 
@@ -47,7 +48,7 @@ router.get('/goals', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 
-			res.render('foods/index', { goals, username, loggedIn })
+			res.render('goals/index', { goals, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -59,7 +60,7 @@ router.get('/goals', (req, res) => {
 router.get('/new', (req, res) => {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
-
+	
 	res.render('goals/new', { username, loggedIn })
 })
 
