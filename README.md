@@ -1,4 +1,6 @@
 # NutritionLog
+<h2>Deployed using Heroku:</h2>
+<a target="_blank" rel="noopener noreferrer" href="https://mynurtitionlog.herokuapp.com/">mynutritionlog</a>
 
 <h2>Premise:</h2>
 <h4>User Story</h4>
@@ -7,7 +9,8 @@
   <li>Have my own login page </li>
   <li>Input my food item, with nutritional information </li>
   <li>View each food item </li>
-  <li>Create food items </li>
+  <li>Create food items yourself</li>
+  <li>Add food items from API</li>
   <li>Edit food items </li>
   <li>Delete food items </li>
   <li>See total amounts of calories</li>
@@ -21,15 +24,16 @@
   <li>CSS</li>
   <li>JavaScript</li>
   <li>Express</li>
-  <li>Liquid</li>
+  <li>Shopify Liquid</li>
   <li>Mongoose</li>
-  <li>MongoDB</li>
+  <li>MongoDB Atlas</li>
+  <li>CalorieNinjas API</li>
 </ul>
 
 <h2>Icebox:</h2>
 
 <h2>Wireframes:</h2>
-<img src="https://user-images.githubusercontent.com/96600690/173129046-c95392dd-0490-4d96-8a86-96e361ed0332.png"/>
+<img src="https://user-images.githubusercontent.com/96600690/173129046-c95392dd-0490-4d96-8a86-96e361ed0332.png" style="width: 500px"/>
 
 <h2>Models:</h2>
 <ul>
