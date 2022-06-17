@@ -1,18 +1,16 @@
-// Import Dependencies
+// Import
 const express = require('express')
 const Food = require('../models/food')
 const YOUR_API_KEY = process.env.API_KEY
 const mongoose = require('../models/connection')
 const db = mongoose.connection;
 
-
-// Create router
+// Creation of router
 const router = express.Router()
 
-// Router Middleware
-// Authorization middleware
+// Middleware for authorization and router
 router.use((req, res, next) => {
-	// checking the loggedin boolean of our session
+	// Check if user is logged in
 	if (req.session.loggedIn) {
 		// if they're logged in, go next
 		next()
@@ -23,15 +21,14 @@ router.use((req, res, next) => {
 })
 
 // Routes
-// index ALL foods route
+// Index all foods route
 router.get('/', (req, res) => {
 	// find the foods
 	Food.find({})
-		// then render a template AFTER they're found
+		// Render all foods
 		.then((foods) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			// console.log(foods)
 			res.render('foods/index', { foods, username})
 		})
 		// show an error if there is one
@@ -41,11 +38,11 @@ router.get('/', (req, res) => {
 		})
 })
 
-// index that shows only the user's foods
+// Show user foods only
 router.get('/mine', (req, res) => {
-	// find the foods
+	// Find the foods
 	Food.find({ username: req.session.username })
-		// then render a template AFTER they're found
+		// Render user foods only
 		.then((foods) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
@@ -59,16 +56,16 @@ router.get('/mine', (req, res) => {
 		})
 })
 
-// new route -> GET route that renders our page with the form
+// new route
 router.get('/new', (req, res) => {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
-
+	//Render the new food page
 	res.render('foods/new', { username, loggedIn })
 })
 
 router.post('/new', (req, res) => {
-	// find the foods
+	// Set variables to push into schema
     let username = req.session.username
     let name = req.body.name
 	let sugar = req.body.sugar_g;
@@ -102,11 +99,13 @@ router.post('/new', (req, res) => {
             }
             ]
         }
+		//Create the new food object
         Food.create(newFoods)
+		//Take user back to their main page
         res.redirect('/foods/mine')
 })
 
-// create -> POST route that calls the db and makes a new document
+// Post info fetched from API into new food
 router.post('/', (req, res) => {
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
@@ -156,6 +155,7 @@ router.post('/', (req, res) => {
               }
             ]
         }
+		//Create new food taken from API
         Food.create(newFoods)
         res.redirect('/foods')
     })
@@ -164,27 +164,27 @@ router.post('/', (req, res) => {
     })
 })
 
-// edit route -> GET that takes us to the edit form view
+// Route to edit
 router.get('/:id/edit', (req, res) => {
-	// we need to get the id
+	// Setting id of food to variable
 	const foodId = req.params.id
 	// find the food
 	Food.findById(foodId)
-		// -->render if there is a food
+		// Render
 		.then((food) => {
 			console.log('edit food', food)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			res.render('foods/edit', { food, username, loggedIn })
 		})
-		// -->error if no food
+		// Error
 		.catch((err) => {
 			console.log(err)
 			res.json(err)
 		})
 })
 
-// update route -> sends a put request to our database
+// Put route 
 router.put('/:id', (req, res) => {
 	// get the id
 	const foodId = req.params.id
@@ -211,18 +211,18 @@ router.put('/:id', (req, res) => {
 			]
 		}
 	Food.findOneAndUpdate(foodId, {$set: newFoods})
-		// if successful -> redirect to the food page
+		// Redirect to specific food that was changed
 		.then((food) => {
 			console.log('the updated food', food)
 			res.redirect(`/foods/${food.id}`)
 		})
-		// if an error, display that
+		// Error catch
 		.catch((error) => res.json(error))
 })
 
 // show route
 router.get('/:id', (req, res) => {
-	// first, we need to get the id
+	// Get id
 	const foodId = req.params.id
 	// then we can find a food by its id
 	Food.findById(foodId)
@@ -248,7 +248,7 @@ router.delete('/:id', (req, res) => {
 	Food.findByIdAndRemove(foodId)
 		.then((food) => {
 			console.log('this is the response from FBID', food)
-			res.redirect('/foods')
+			res.redirect('/foods/mine')
 		})
 		.catch((error) => {
 			console.log(error)
