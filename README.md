@@ -5,12 +5,14 @@
 <h4>As a user I want to</h4>
 <ul>
   <li>Have my own login page </li>
-  <li>Input my food item </li>
-  <li>Input amount of calories </li>
-  <li>Be able to see different nutritional information </li>
+  <li>Input my food item, with nutritional information </li>
+  <li>View each food item </li>
   <li>Create food items </li>
+  <li>Edit food items </li>
   <li>Delete food items </li>
-  <li>See total amounts of calories per day</li>
+  <li>See total amounts of calories</li>
+  <li>Set weight goal</li>
+  <li>Set calorie goal</li>
 </ul>
 
 <h2>Technologies Used</h2>
@@ -29,5 +31,6 @@
 <h2>Wireframes:</h2>
 <img src="https://user-images.githubusercontent.com/96600690/173129046-c95392dd-0490-4d96-8a86-96e361ed0332.png"/>
 
-<h2>ERD Diagram</h2>
-https://drive.google.com/file/d/1FTH0tu1psaY7dnH4FJo3i4DcPwdndmVu/view?usp=sharing
+<h2>Models:</h2>
+<h2>ERD</h2>
+<img src="https://user-images.githubusercontent.com/96600690/174311809-fbe8263f-bfb2-4e49-9eab-5cc766a93b9c.png"/>
