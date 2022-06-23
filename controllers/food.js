@@ -157,7 +157,7 @@ router.post('/', (req, res) => {
         }
 		//Create new food taken from API
         Food.create(newFoods)
-        res.redirect('/foods')
+        res.redirect('/foods/mine')
     })
     .catch(function(error){
         console.log(error)
