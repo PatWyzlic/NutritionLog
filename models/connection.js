@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 
 // database connection
 // here we are setting up inputs for our connect function
-const MONGODB_URI = process.env.MONGODB_URI
+const DATABASE_URL = process.env.DATABASE_URL
 
 // establish connection
-mongoose.connect(MONGODB_URI, err => {
+mongoose.connect(DATABASE_URL, err => {
 	if(err) throw err;
 	console.log('connected to MongoDB')
 });
