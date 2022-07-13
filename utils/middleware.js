@@ -14,15 +14,17 @@ const middleware = (app) => {
     app.use(morgan('tiny'))
     app.use(methodOverride('_method'))
     app.use(express.urlencoded({ extended: false }))
-    app.use(express.static(__dirname + '../public'));
+    app.use(express.static((__dirname + '/public'))
+	app.set('views', __dirname + '/views');
     app.use(
 			session({
 				secret: process.env.SECRET,
-				store: MongoConnect.create({ mongoUrl: process.env.DATABASE_URL }),
+				store: MongoConnect.create({ mongoUrl: process.env.MONGODB_URI }),
 				saveUninitialized: true,
 				resave: false,
 			})
 		)
+		
 }
 
 //Export Middleware
