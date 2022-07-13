@@ -16,7 +16,7 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon app.js",
     "seed": "node models/seed.js"
   },
   "name": "nutritionlog",
