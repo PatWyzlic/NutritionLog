@@ -19,7 +19,7 @@
     "start": "node server.js",
     "seed": "node models/seed.js"
   },
-  "name": "nlfiles",
+  "name": "nutritionlog",
   "version": "1.0.0",
   "main": "server.js",
   "author": "",

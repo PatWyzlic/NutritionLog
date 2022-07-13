@@ -7,10 +7,7 @@ const mongoose = require('mongoose')
 const DATABASE_URL = process.env.DATABASE_URL
 
 // establish connection
-mongoose.connect(DATABASE_URL, err => {
-	if(err) throw err;
-	console.log('connected to MongoDB')
-});
+mongoose.connect(DATABASE_URL);
 
 // events for when our connection opens/closes/errors
 mongoose.connection
