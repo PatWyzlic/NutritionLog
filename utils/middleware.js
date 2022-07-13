@@ -23,7 +23,6 @@ const middleware = (app) => {
 				store: MongoConnect.create({ mongoUrl: process.env.DATABASE_URL }),
 				saveUninitialized: true,
 				resave: false,
-				...options
 			})
 		)
 		
