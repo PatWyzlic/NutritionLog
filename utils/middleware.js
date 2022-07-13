@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const MongoConnect = require('connect-mongo')
+const MongoDBStore = require('connect-mongodb-session')(session);
 const FoodRouter = require('../controllers/food')
 const UserRouter = require('../controllers/user')
 const GoalRouter = require('../controllers/goal')
