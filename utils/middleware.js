@@ -19,9 +19,10 @@ const middleware = (app) => {
     app.use(
 			session({
 				secret: process.env.SECRET,
-				store: MongoConnect.create({ mongoUrl: process.env.MONGODB_URI }),
+				store: MongoConnect.create({ mongoUrl: process.env.DATABASE_URL }),
 				saveUninitialized: true,
 				resave: false,
+				...options
 			})
 		)
 		
