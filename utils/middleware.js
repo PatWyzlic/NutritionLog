@@ -14,7 +14,7 @@ const middleware = (app) => {
     app.use(morgan('tiny'))
     app.use(methodOverride('_method'))
     app.use(express.urlencoded({ extended: false }))
-    app.use(express.static('public'))
+    app.use(express.static(__dirname + '../public'));
     app.use(
 			session({
 				secret: process.env.SECRET,

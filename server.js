@@ -2,7 +2,6 @@
 require('dotenv').config()
 const express = require('express')
 const api_key = process.env.API_KEY
-var path = require ('path');
 
 //Create app
 const app = require('liquid-express-views')(express())
@@ -19,8 +18,6 @@ middleware(app)
 
 
 //Routes
-
-app.use(express.static(path.join(__dirname + '../public')));
 app.use('/goals', GoalRouter)
 app.use('/foods', FoodRouter)
 app.use('/user', UserRouter)
