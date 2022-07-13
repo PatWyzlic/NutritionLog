@@ -6,7 +6,7 @@ const router = express.Router()
 
 // Route
 router.get('/', (req, res) => {
-    res.render('../views/index')
+    res.render('index.liquid')
 })
 
 // Export Router
